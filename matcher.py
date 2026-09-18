@@ -51,7 +51,7 @@ def run_matching():
     # 1. Match Scraped Locations to CRM Accounts
     for idx, facility in enumerate(scraped):
         facility_name = facility.get("facility_name", "")
-        p_id = f"prop_{idx}_{abs(hash(facility_name))}"
+        p_id = f"prop_{idx}_{facility_name.lower().replace(' ', '_')}"
         
         if p_id in decided_ids:
             continue
